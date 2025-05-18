@@ -1,7 +1,8 @@
 #include <unistd.h>
+#include <cstdio>
 #include <iostream>
 
-int ticker (bool &run, int &tick, int &uticktime);
+int ticker (bool &ticker_enabled, int &tick, int &uticktime);
 
 /*
 _____________________________________________________________
@@ -10,15 +11,23 @@ START OF EXEC
 _____________________________________________________________
 */
 
-int main ()
+int main(void)
 {
-    bool run = 1;
-    int tick = 1;
+    bool ticker_enabled = 1;
+    int tick = 0;
     int uticktime = 16667;
-    while (tick<120)
+    int i = 1;
+    std::cout << "Ticks:\n";
+    std::cin >> i;
+
+    std::cout << "Rate in microseconds:\n";
+    std::cin >> uticktime;
+
+    while (tick<i)
     {
-    ticker(run, tick, uticktime);
+    ticker(ticker_enabled, tick, uticktime);
     }
+    return 0;
 }
 
 /*
@@ -29,13 +38,12 @@ _____________________________________________________________
 */
 
 
-int ticker (bool &run, int &tick, int &uticktime)
+int ticker (bool &ticker_enabled, int &tick, int &uticktime)
 {
-
-    if(run != 0)
+    if(ticker_enabled)
     {
-        tick+=1;
-        std::cout << "Tick: " << tick << "\n";
+        ++tick;
+        printf("Tick: %d \n", tick);
         usleep(uticktime); //Time between ticks in uS (Microseconds)
     }
     return tick;
