@@ -22,7 +22,7 @@ if(n > 5)
 {
     printf("You sure? y or n \n");
     std::cin >> confirmation;
-    if (confirmation != 'y'|| 'Y')
+    if (confirmation != 'y')
     {
         goto unsure;
     }
