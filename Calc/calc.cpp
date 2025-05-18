@@ -7,7 +7,7 @@ int n = 0;
 
 unsure:
 std::cout << "Number of elements: \n";
-std::cin >> n;
+scanf("%d", &n);
 
 //Insta quit if you're stoopid
 if(n == 0)
