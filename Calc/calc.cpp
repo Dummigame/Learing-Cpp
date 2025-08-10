@@ -10,21 +10,29 @@ std::cout << "Number of elements: \n";
 scanf("%d", &n);
 
 //Insta quit if you're stoopid
-if(n == 0)
+if(!n)
 {
-    printf("\nNOP\n");
-    return 0;
+    printf("\nInvalid\n");
+    return 1;
 }
 
 //Sanity questionnaire
-char confirmation = 'n';
 if(n > 5)
 {
+    if (n > 50)
+    {
+        printf("You don't wanna do that. \n");
+        return 2;
+    }
+
+    char confirmation;
     printf("You sure? y or n \n");
     std::cin >> confirmation;
-    if (confirmation != 'y')
+    switch (confirmation)
     {
-        goto unsure;
+        case 'y': break;
+        case 'Y': break;
+        default: confirmation = 'n'; goto unsure;
     }
 }
 
