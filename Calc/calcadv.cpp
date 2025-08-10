@@ -1,3 +1,4 @@
+#include <cstring>
 #include <iostream>
 #include <string>
 
@@ -7,7 +8,7 @@ int main(void)
     {
         std::string equation = "NOP";
         std::cout << "Welcome to the calculator!\nType your equation, using + for add, - for subtract, * for multiply and / for divide.\n";
-        std::cin >> equation;
+        std::getline(std::cin, equation);
         double result = calculation(equation);
         std::cout << result << std::endl;
         return 0;
@@ -15,7 +16,7 @@ int main(void)
 
 
 
-double calculation(std::string)
+double calculation(std::string equation)
 {
     enum operators
     {
@@ -24,10 +25,35 @@ double calculation(std::string)
         MUL = '*',
         DIV = '/'
     };
-
     
+    for(int i = equation.length(); i > 0; --i)
+    {
+        
+    }
 
+    return final;
+}
 
-    double result;
-    return result;
+double add(double a, double b)
+{
+    a+=b;
+    return a;
+}
+
+double sub(double a, double b)
+{
+    a-=b;
+    return a;
+}
+
+double mul(double a, double b)
+{
+    a=a*b;
+    return a;
+}
+
+double div(double a, double b)
+{
+    a=a/b;
+    return a;
 }
